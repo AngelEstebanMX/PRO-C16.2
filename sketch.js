@@ -48,7 +48,7 @@ function setup() {
 function draw() {
  background(0);
  if(gameState === PLAY){
-
+ 
   //mover el suelo
     scene.velocityX = -3 
 
@@ -81,7 +81,26 @@ function draw() {
       default:break;
     }
   }
-
+  if (arrowGroup.isTouching(greenB)) {
+    greenB.destroyEach();
+    score+=3
+      gameState=END; 
+   }
+  
+  
+   if (arrowGroup.isTouching(blueB)) {
+    blueB.destroyEach();
+    score+=2
+      gameState=END; 
+   }
+  
+  
+   if (arrowGroup.isTouching(pinkB)) {
+    pinkB.destroyEach();
+    score+=1
+      gameState=END; 
+  }
+  
   if (arrowGroup.isTouching(redB)) {
     redB.destroyEach();
     score+=3
@@ -95,25 +114,6 @@ function draw() {
 }
 
  
- if (arrowGroup.isTouching(greenB)) {
-  greenB.destroyEach();
-  score+=3
-    gameState=END; 
- }
-
-
- if (arrowGroup.isTouching(blueB)) {
-  blueB.destroyEach();
-  score+=2
-    gameState=END; 
- }
-
-
- if (arrowGroup.isTouching(pinkB)) {
-  pinkB.destroyEach();
-  score+=1
-    gameState=END; 
-}
 
  }
   
